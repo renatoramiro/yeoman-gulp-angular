@@ -1,0 +1,140 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creationDate="main.creationDate" />
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="">
+        <form>
+          <div class="form-group">
+            <label for="inputName">Nome do Paciente</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Nome">
+          </div>
+          <div class="form-group">
+            <label for="inputIndication">Indicação Clínica</label>
+            <input type="text" class="form-control" id="inputIndication" placeholder="Indicação">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inputNumberGuia">Número da Guia</label>
+                <input type="text" class="form-control" id="inputNumberGuia" placeholder="Número da guia">
+              </div>
+              <div class="col-md-3">
+                <label>&nbsp;</label>
+                <input type="text" value="1234" class="form-control" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-3">
+                <p for="inputProcedimento" class="text-center">Procedimento</p>
+              </div>
+              <div class="col-md-8">
+                <p for="inputDescription" class="text-center">Descrição do Procedimento</p>
+              </div>
+              <div class="col-md-1">
+                <p for="inputQuantity" class="text-center">Quantidade</p>
+              </div>
+            </div>
+            <div class="row" ng-repeat="count in list">
+              <div class="col-md-3">
+                <input type="text" class="form-control" id="inputProcedimento" placeholder="Procedimento">
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="inputDescription" placeholder="Descrição">
+              </div>
+              <div class="col-md-1">
+                <input type="text" class="form-control" id="inputQuantity" placeholder="Qtd">
+              </div>
+            </div>
+          </div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a data-target="#address" aria-controls="address" role="tab" data-toggle="tab">Endereço do Paciente</a></li>
+              <li role="presentation"><a data-target="#prescription" aria-controls="prescription" role="tab" data-toggle="tab">Prescrição Receituário</a></li>
+              <li role="presentation"><a data-target="#opme" aria-controls="opme" role="tab" data-toggle="tab">OPME - Solicitados</a></li>
+              <li role="presentation"><a data-target="#indication" aria-controls="indication" role="tab" data-toggle="tab">Indicação Cirúrgica</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="address">
+                <div class="form-group">
+                  <label for="inputAddress">Endereço</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <label for="inputBairro">Bairro</label>
+                      <input type="text" class="form-control" id="inputBairro" placeholder="">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputCidade">Cidade</label>
+                      <input type="text" class="form-control" id="inputCidade" placeholder="">
+                    </div>
+                    <div class="col-md-1">
+                      <label for="inputEstado">UF</label>
+                      <input type="text" class="form-control" id="inputEstado" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="prescription">
+                <div class="form-group">
+                  <div class="row" ng-repeat="count in list3">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="inputPrCol1" placeholder="">
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="inputPrCol2" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="opme">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <p for="inputDescricaoOpme" class="text-center">Descrição do OPME</p>
+                    </div>
+                    <div class="col-md-1">
+                      <p for="inputOpmeQuantity" class="text-center">Quantidade</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p for="inputOpmeFabricante" class="text-center">Descrição do Procedimento</p>
+                    </div>
+                  </div>
+                  <div class="row" ng-repeat="count in list3">
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="inputOpmeDescricao" placeholder="">
+                    </div>
+                    <div class="col-md-1">
+                      <input type="text" class="form-control" id="inputQuantity" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" class="form-control" id="inputDescription" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="indication">
+                <div class="form-group">
+                  <textarea id="inputindication" class="form-control" placeholder="Indicação Cirúrgica" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
+          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
