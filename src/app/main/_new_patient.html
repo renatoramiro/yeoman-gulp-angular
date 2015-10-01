@@ -3,6 +3,7 @@
   <div>
     <acme-navbar creationDate="main.creationDate" />
   </div>
+
   <div class="row">
     <div class="col-sm-12 col-md-12">
       <div class="">
@@ -54,10 +55,10 @@
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a data-target="#address" ng-href="/address" aria-controls="address" role="tab" data-toggle="tab">Endereço do Paciente</a></li>
-              <li role="presentation"><a data-target="#prescription" ng-href="/prescription" aria-controls="prescription" role="tab" data-toggle="tab">Prescrição Receituário</a></li>
-              <li role="presentation"><a data-target="#opme" ng-href="/opme" aria-controls="opme" role="tab" data-toggle="tab">OPME - Solicitados</a></li>
-              <li role="presentation"><a data-target="#indication" ng-href="/indication" aria-controls="indication" role="tab" data-toggle="tab">Indicação Cirúrgica</a></li>
+              <li role="presentation" class="active"><a data-target="#address" aria-controls="address" role="tab" data-toggle="tab">Endereço do Paciente</a></li>
+              <li role="presentation"><a data-target="#prescription" aria-controls="prescription" role="tab" data-toggle="tab">Prescrição Receituário</a></li>
+              <li role="presentation"><a data-target="#opme" aria-controls="opme" role="tab" data-toggle="tab">OPME - Solicitados</a></li>
+              <li role="presentation"><a data-target="#indication" aria-controls="indication" role="tab" data-toggle="tab">Indicação Cirúrgica</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -131,7 +132,7 @@
 
           </div>
           <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
-          <button type="submit" class="btn btn-default" ng-click="print(patient)"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+          <button type="submit" class="btn btn-default" ng-click="print()"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
         </form>
       </div>
     </div>
