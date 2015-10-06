@@ -6,6 +6,7 @@
 
   <newpatient></newpatient>
   <patientsaved></patientsaved>
+  <patientupdated></patientupdated>
   <patientremoved></patientremoved>
   <modalpatientremoved></modalpatientremoved>
 
@@ -26,8 +27,8 @@
             <td>{{patient.nome}}</td>
             <td>{{patient.convenio}}</td>
             <td>
-              <a href="#/patient/{{patient._id}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-ok-circle"></i></a>
-              <!-- <a href="#/patient/{{patient._id}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a> -->
+              <a href="#/patients/{{patient._id}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-ok-circle"></i></a>
+              <a ng-click="editPatient(patient._id)" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
               <button ng-click="openModalRemove(patient)" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalPatient"><i class="glyphicon glyphicon-trash"></i></button>
             </td>
           </tr>

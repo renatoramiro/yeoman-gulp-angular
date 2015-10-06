@@ -27,8 +27,8 @@
 					}
 				}
       })
-      .when('/patients/:_id', {
-        templateUrl: 'app/patient/show.html',
+      .when('/patients/:patientId', {
+        templateUrl: 'app/dashboard/show.html',
         controller: 'DashboardController',
         controllerAs: 'dash',
         resolve:{
@@ -37,7 +37,7 @@
 					}
 				}
       })
-      .when('/create', {
+      .when('/create/:anameneseId', {
         templateUrl: 'app/main/create.html',
         controller: 'MainController',
         controllerAs: 'main',

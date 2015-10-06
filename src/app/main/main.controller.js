@@ -12,7 +12,8 @@
 
       return service;
     })
-    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', function ($scope, $timeout, $location, patientService, $rootScope) {
+    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce',
+      function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce) {
       $scope.user = {};
       $scope.patient = {};
       $scope.formPatient = {};
@@ -21,8 +22,39 @@
       $scope.list3 = [1, 2, 3];
 
       $scope.print = function (patient) {
-        $location.path('/print');
-        $rootScope.patientPrint = patientService.getPatient(patient);
+        // console.log(MainService.generate(patient));
+        // return MainService.generate(patient);
+        $http.get('http://localhost:4000/api/v1/report', { params: {data: patient}, responseType: 'arraybuffer' }).
+    			success(function(data, status, headers, config){
+            var file = new Blob([data], {type: 'application/pdf'});
+            var fileURL = URL.createObjectURL(file);
+            window.open($sce.trustAsResourceUrl(fileURL));
+    			}).
+    			error(function(err){
+    				console.log(err);
+    			});
       };
+
+      $scope.addOnList = function () {
+        if ($scope.patient.list === undefined) {
+          $scope.patient.list = [];
+        }
+
+        if ($scope.patient.list.length < 5) {
+          $scope.patient.list.push({
+            procedimento: '',
+            descricao: '',
+            quantidade: ''
+          });
+        }
+      };
+
+      $scope.removeItemList = function (index) {
+        $scope.patient.list.splice(index, 1);
+      };
+
+      if ($routeParams.anameneseId) {
+        $scope.patient = patientService.get($routeParams.anameneseId);
+      }
     }]);
 })();

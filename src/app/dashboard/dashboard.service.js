@@ -14,6 +14,10 @@
       return PatientFactory.save(patient);
     };
 
+    this.update = function (id, patient) {
+      return PatientFactory.update({_id: id}, patient);
+    };
+
     this.remove = function (id) {
       return PatientFactory.delete({_id: id});
     };

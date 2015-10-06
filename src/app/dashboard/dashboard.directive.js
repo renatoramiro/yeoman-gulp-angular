@@ -12,6 +12,11 @@
       templateUrl: 'app/dashboard/patient_saved.html'
     };
   })
+  .directive('patientupdated', function () {
+    return {
+      templateUrl: 'app/dashboard/patient_updated.html'
+    };
+  })
   .directive('patientremoved', function () {
     return {
       templateUrl: 'app/dashboard/patient_removed.html'
