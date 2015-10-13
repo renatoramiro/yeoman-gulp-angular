@@ -12,3 +12,23 @@
 .thumbnail img.pull-right {
   width: 50px;
 }
+
+.border {
+  border: solid 1px black;
+}
+
+.border span {
+  font-size: 12px;
+}
+
+.border p {
+  font-size: 14px;
+}
+
+.simple-margin-left {
+  margin-left: 3px;
+}
+
+.simple-margin-top {
+  margin-top: 3px;
+}

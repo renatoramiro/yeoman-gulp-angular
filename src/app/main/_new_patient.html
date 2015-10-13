@@ -3,13 +3,14 @@
   <div>
     <acme-navbar creationDate="main.creationDate" />
   </div>
+
   <div class="row">
     <div class="col-sm-12 col-md-12">
       <div class="">
         <form class="form-horizontal full-width" name="formPatient.patient">
           <div class="form-group">
-            <label for="inputName">Nome do Paciente</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Nome" ng-model="patient.nome">
+            <label for="inputName">Nome do Paciente {{user.username}}</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Nome" ng-model="patient.name">
           </div>
           <div class="form-group">
             <label for="inputIndication">Indicação Clínica</label>
@@ -38,30 +39,26 @@
               <div class="col-md-1">
                 <p for="inputQuantity" class="text-center">Quantidade</p>
               </div>
-              <button ng-hide="patient.list.length >= 5" id="addOnList" ng-click="addOnList()" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i></button>
             </div>
-            <div class="row" ng-repeat="lst in patient.list track by $index">
-              <div class="col-md-1">
-                <button id="removeItemList{{$index}}" ng-click="removeItemList($index)" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-minus"></i></button>
-              </div>
+            <div class="row" ng-repeat="count in list">
               <div class="col-md-3">
-                <input type="text" class="form-control" id="inputProcedimento" placeholder="Procedimento" ng-model="lst.procedimento">
+                <input type="text" class="form-control" id="inputProcedimento" placeholder="Procedimento">
               </div>
-              <div class="col-md-7">
-                <input type="text" class="form-control" id="inputDescription" placeholder="Descrição" ng-model="lst.descricao">
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="inputDescription" placeholder="Descrição">
               </div>
               <div class="col-md-1">
-                <input type="text" class="form-control" id="inputQuantity" placeholder="Qtd" ng-model="lst.quantidade">
+                <input type="text" class="form-control" id="inputQuantity" placeholder="Qtd">
               </div>
             </div>
           </div>
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a data-target="#address" ng-href="/address" aria-controls="address" role="tab" data-toggle="tab">Endereço do Paciente</a></li>
-              <li role="presentation"><a data-target="#prescription" ng-href="/prescription" aria-controls="prescription" role="tab" data-toggle="tab">Prescrição Receituário</a></li>
-              <li role="presentation"><a data-target="#opme" ng-href="/opme" aria-controls="opme" role="tab" data-toggle="tab">OPME - Solicitados</a></li>
-              <li role="presentation"><a data-target="#indication" ng-href="/indication" aria-controls="indication" role="tab" data-toggle="tab">Indicação Cirúrgica</a></li>
+              <li role="presentation" class="active"><a data-target="#address" aria-controls="address" role="tab" data-toggle="tab">Endereço do Paciente</a></li>
+              <li role="presentation"><a data-target="#prescription" aria-controls="prescription" role="tab" data-toggle="tab">Prescrição Receituário</a></li>
+              <li role="presentation"><a data-target="#opme" aria-controls="opme" role="tab" data-toggle="tab">OPME - Solicitados</a></li>
+              <li role="presentation"><a data-target="#indication" aria-controls="indication" role="tab" data-toggle="tab">Indicação Cirúrgica</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -69,21 +66,21 @@
               <div role="tabpanel" class="tab-pane active" id="address">
                 <div class="form-group">
                   <label for="inputAddress">Endereço</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="" ng-model="patient.endereco">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="" ng-model="patient.address">
                 </div>
                 <div class="form-group">
                   <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                       <label for="inputBairro">Bairro</label>
                       <input type="text" class="form-control" id="inputBairro" placeholder="" ng-model="patient.bairro">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                       <label for="inputCidade">Cidade</label>
-                      <input type="text" class="form-control" id="inputCidade" placeholder="" ng-model="patient.cidade">
+                      <input type="text" class="form-control" id="inputCidade" placeholder="" ng-model="patient.city">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                       <label for="inputEstado">UF</label>
-                      <input type="text" class="form-control" id="inputEstado" placeholder="" ng-model="patient.uf">
+                      <input type="text" class="form-control" id="inputEstado" placeholder="" ng-model="patient.estado">
                     </div>
                   </div>
                 </div>
@@ -134,10 +131,10 @@
             </div>
 
           </div>
-          <button type="submit" class="btn btn-default" ng-click="print(patient)"><i class="glyphicon glyphicon-download-alt"></i> Gerar</button>
+          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-floppy-save"></i> Salvar</button>
+          <button type="submit" class="btn btn-default" ng-click="print()"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<object ng-show="content" data="{{content}}" type="application/pdf" style="width: 100%; height: 400px;"></object>

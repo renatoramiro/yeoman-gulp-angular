@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <acme-navbar creationDate="main.creationDate" />
+  </div>
+  <div class="row well">
+    <div class="col-md-12">
+      <p>
+        Nome: {{patient.nome}}
+      </p>
+      <hr>
+      <p>
+        Convênio: {{patient.convenio}}
+      </p>
+      <hr>
+      <p>
+        Endereço: {{patient.endereco}}, {{patient.bairro}}, {{patient.cidade}} - {{patient.uf}}
+      </p>
+      <hr>
+      <p class="text-right">
+        <a href="#/dashboard" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i> Voltar</a>
+        <a ng-href="#/create/{{patient._id}}" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-book"></i> Criar Anamnese</a>
+      </p>
+    </div>
+  </div>
+</div>

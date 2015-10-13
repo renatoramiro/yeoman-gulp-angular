@@ -7,23 +7,58 @@
 
   function routeConfig($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .when('/login', {
+        templateUrl: 'app/account/login.html',
+        controller: 'AccountController',
+        controllerAs: 'account'
       })
       .when('/register', {
-        templateUrl: 'app/main/register.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        templateUrl: 'app/account/register.html',
+        controller: 'AccountController',
+        controllerAs: 'account'
       })
-      .when('/create', {
+      .when('/dashboard', {
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'dash',
+        resolve:{
+					auth: function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
+      })
+      .when('/patients/:patientId', {
+        templateUrl: 'app/dashboard/show.html',
+        controller: 'DashboardController',
+        controllerAs: 'dash',
+        resolve:{
+					auth: function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
+      })
+      .when('/create/:anameneseId', {
         templateUrl: 'app/main/create.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve:{
+					auth: function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
+      })
+      .when('/print', {
+        templateUrl: 'app/main/print.html',
+        controller: 'MainController',
+        controllerAs: 'main',
+        resolve:{
+					auth: function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   }
 

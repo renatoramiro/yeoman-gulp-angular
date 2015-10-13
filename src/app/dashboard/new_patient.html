@@ -1,0 +1,43 @@
+<div class="container" ng-show="newPatient">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h2>Adicionar Paciente</h2>
+      <div class="well">
+        <form novalidate name="form.patient" ng-submit="actionForm == 'Salvar' ? save(patient) : update(patient)">
+          <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome" ng-model="patient.nome" required>
+          </div>
+          <div class="form-group">
+            <label for="inputConvenio">Convênio</label>
+            <input type="text" class="form-control" id="inputConvenio" placeholder="Convênio" ng-model="patient.convenio" required>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="inputEndereco">Endereço</label>
+                <input type="text" class="form-control" id="inputEndereco" placeholder="Endereço" ng-model="patient.endereco" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <label for="inputBairro">Bairro</label>
+                <input type="text" class="form-control" id="inputBairro" placeholder="Bairro" ng-model="patient.bairro" required>
+              </div>
+              <div class="col-md-5">
+                <label for="inputCidade">Cidade</label>
+                <input type="text" class="form-control" id="inputCidade" placeholder="Cidade" ng-model="patient.cidade" required>
+              </div>
+              <div class="col-md-2">
+                <label for="inputUf">UF</label>
+                <input type="text" class="form-control" id="inputUf" placeholder="UF" ng-model="patient.uf" required>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default" ng-disabled="form.patient.$invalid">{{actionForm}}</button>
+          <button class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
