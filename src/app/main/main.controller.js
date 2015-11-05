@@ -12,7 +12,7 @@
 
       return service;
     })
-    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce',
+    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce', 'Configuration',
       function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce) {
       $scope.user = {};
       $scope.patient = {};
@@ -24,7 +24,7 @@
       $scope.print = function (patient) {
         // console.log(MainService.generate(patient));
         // return MainService.generate(patient);
-        $http.get('http://localhost:4000/api/v1/report', { params: {data: patient}, responseType: 'arraybuffer' }).
+        $http.get(Configuration.API + '/api/v1/report', { params: {data: patient}, responseType: 'arraybuffer' }).
     			success(function(data, status, headers, config){
             var file = new Blob([data], {type: 'application/pdf'});
             var fileURL = URL.createObjectURL(file);
