@@ -13,7 +13,7 @@
       return service;
     })
     .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce', 'Configuration',
-      function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce) {
+      function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce, Configuration) {
       $scope.user = {};
       $scope.patient = {};
       $scope.formPatient = {};
