@@ -14,16 +14,16 @@
     })
     .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce',
       function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce) {
-      $scope.user = {};
-      $scope.patient = {};
+      // $scope.user = {};
+      $scope.patient = {
+        procedimentos: []
+      };
       $scope.formPatient = {};
 
       $scope.list = [1, 2, 3, 4, 5];
       $scope.list3 = [1, 2, 3];
 
       $scope.print = function (patient) {
-        // console.log(MainService.generate(patient));
-        // return MainService.generate(patient);
         $http.get('http://localhost:4000/api/v1/report', { params: {data: patient}, responseType: 'arraybuffer' }).
     			success(function(data, status, headers, config){
             var file = new Blob([data], {type: 'application/pdf'});
@@ -36,12 +36,12 @@
       };
 
       $scope.addOnList = function () {
-        if ($scope.patient.list === undefined) {
-          $scope.patient.list = [];
+        if ($scope.patient.procedimentos === undefined) {
+          $scope.patient.procedimentos = [];
         }
 
-        if ($scope.patient.list.length < 5) {
-          $scope.patient.list.push({
+        if ($scope.patient.procedimentos.length < 5) {
+          $scope.patient.procedimentos.push({
             procedimento: '',
             descricao: '',
             quantidade: ''
@@ -50,7 +50,7 @@
       };
 
       $scope.removeItemList = function (index) {
-        $scope.patient.list.splice(index, 1);
+        $scope.patient.procedimentos.splice(index, 1);
       };
 
       if ($routeParams.anameneseId) {
