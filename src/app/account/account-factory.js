@@ -3,20 +3,20 @@
 
 	angular.module('medicos2')
 
-	.factory('LoginFactory', function ($resource) {
-		return $resource('http://localhost:4000/api/v1/login', {},
+	.factory('LoginFactory', function ($resource, Configuration) {
+		return $resource(Configuration.API + '/api/v1/login', {},
 		{
 			login: { method: 'POST'}
 		});
 	})
-	.factory('RegisterFactory', function ($resource) {
-		return $resource('http://localhost:4000/api/v1/register', {},
+	.factory('RegisterFactory', function ($resource, Configuration) {
+		return $resource(Configuration.API + '/api/v1/register', {},
 		{
 			register: { method: 'POST'}
 		});
 	})
-	.factory('MeFactory', function ($resource) {
-		return $resource('http://localhost:4000/api/v1/me', {}, {});
+	.factory('MeFactory', function ($resource, Configuration) {
+		return $resource(Configuration.API + '/api/v1/me', {}, {});
 	})
 	.factory('authInterceptor', function ($rootScope, $q, $window, $location) {
 		return {

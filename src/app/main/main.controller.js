@@ -12,9 +12,9 @@
 
       return service;
     })
-    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce',
-      function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce) {
-      // $scope.user = {};
+    .controller('MainController', ['$scope', '$timeout', '$location', 'PatientService', '$rootScope', '$routeParams', 'MainService', '$http', '$sce', 'Configuration',
+      function ($scope, $timeout, $location, patientService, $rootScope, $routeParams, MainService, $http, $sce, Configuration) {
+      $scope.user = {};
       $scope.patient = {
         procedimentos: []
       };
@@ -24,11 +24,11 @@
       $scope.list3 = [1, 2, 3];
 
       $scope.print = function (patient) {
-        var geap = 'http://localhost:4000/api/v1/report/geap';
-        var unimed = 'http://localhost:4000/api/v1/report/unimed';
+        var geap = Configuration.API + '/api/v1/report/geap';
+        var unimed = Configuration.API + '/api/v1/report/unimed';
         var url = '';
         if (patient.convenio === 'GEAP') {
-          url = geap
+          url = geap;
         } else if (patient.convenio === 'Unimed') {
           url = unimed;
         }
