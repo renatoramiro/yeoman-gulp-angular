@@ -10,7 +10,7 @@
   <patientremoved></patientremoved>
   <modalpatientremoved></modalpatientremoved>
 
-  <div class="row">
+  <div class="row" ng-hide="newPatient">
     <div class="col-sm-12 col-md-12">
       <h2>Lista de Pacientes</h2>
       <button ng-show="patients.length > 0" ng-click="createPatient()" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Novo Patiente</button>
