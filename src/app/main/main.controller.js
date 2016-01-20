@@ -24,14 +24,23 @@
       $scope.list3 = [1, 2, 3];
 
       $scope.print = function (patient) {
-        $http.get('http://localhost:4000/api/v1/report', { params: {data: patient}, responseType: 'arraybuffer' }).
+        var geap = 'http://localhost:4000/api/v1/report/geap';
+        var unimed = 'http://localhost:4000/api/v1/report/unimed';
+        var url = '';
+        if (patient.convenio === 'GEAP') {
+          url = geap
+        } else if (patient.convenio === 'Unimed') {
+          url = unimed;
+        }
+
+        $http.get(url, { params: {data: patient}, responseType: 'arraybuffer' }).
     			success(function(data, status, headers, config){
             var file = new Blob([data], {type: 'application/pdf'});
             var fileURL = URL.createObjectURL(file);
             window.open($sce.trustAsResourceUrl(fileURL));
     			}).
     			error(function(err){
-    				console.log(err);
+            console.error(err);
     			});
       };
 
